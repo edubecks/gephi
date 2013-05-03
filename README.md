@@ -1,12 +1,12 @@
-# Gephi - The Open Graph Viz Platorm
+# Gephi - The Open Graph Viz Platform
 
-[Gephi](http://gephi.org) is an open-source platform for visualizing and manipulating large graphs. It runs on Windows, Mac OS X and Linux. Localization is available in French, Spanish, Japanese and Brazilian Portuguese.
+[Gephi](http://gephi.org) is an award-winning open-source platform for visualizing and manipulating large graphs. It runs on Windows, Mac OS X and Linux. Localization is available in French, Spanish, Japanese, Russian, Brazilian Portuguese, Chinese and Czech.
 
-- **Fast** Powered by a built-in OpenGL engine, Gephi is pushing the envelope on very large networks. Visualize networks up to a million elements. All actions (e.g. layout, filter, drag) run in real-time.
+- **Fast** Powered by a built-in OpenGL engine, Gephi is able to push the envelope with very large networks. Visualize networks up to a million elements. All actions (e.g. layout, filter, drag) run in real-time.
 
-- **Simple** Easy to install and [get started](http://gephi.org/users/quick-start/). An UI without scripts which and centered around the visualization. Like Photoshop™ for graphs.
+- **Simple** Easy to install and [get started](http://gephi.org/users/quick-start/). An UI that is centered around the visualization. Like Photoshop™ for graphs.
 
-- **Modular** Extend Gephi with [plug-ins](http://gephi.org/plugins/). The architecture is built on top of Netbeans Platform and can be extended or reused easily through well-writen APIs.
+- **Modular** Extend Gephi with [plug-ins](http://gephi.org/plugins/). The architecture is built on top of Netbeans Platform and can be extended or reused easily through well-written APIs.
 
 [Download Gephi](http://gephi.org/users/download/) for Windows, Mac OS X and Linux and consult the [release notes](https://wiki.gephi.org/index.php/Gephi_Releases). Example datasets can be found on our [wiki](https://wiki.gephi.org/index.php?title=Datasets).
 
@@ -16,15 +16,39 @@
 
 Download and [Install](http://gephi.org/users/install) Gephi on your computer. 
 
-Get started with the [Quick Start](http://gephi.org/users/quick-start/) and follow the [Tutorials](http://gephi.org/users/). Load a sample [dataset]((https://wiki.gephi.org/index.php?title=Datasets)) and start to plat with the data.
+Get started with the [Quick Start](http://gephi.org/users/quick-start/) and follow the [Tutorials](http://gephi.org/users/). Load a sample [dataset](https://wiki.gephi.org/index.php?title=Datasets) and start to play with the data.
 
 If you run into any trouble or have questions consult our [forum](http://forum.gephi.org).
 
+## Latest releases
+
+### Stable
+
+- Latest stable release on [gephi.org](http://gephi.org/download).
+
+### Nightly builds
+
+Current version is 0.8.2-SNAPSHOT
+
+- [gephi-0.8.2-SNAPSHOT.zip](http://nexus.gephi.org/nexus/service/local/artifact/maven/content?r=snapshots&g=org.gephi&a=gephi&v=0.8.2-SNAPSHOT&p=zip) (Windows & Linux)
+
+- [gephi-0.8.2-SNAPSHOT.dmg](http://nexus.gephi.org/nexus/service/local/artifact/maven/content?r=snapshots&g=org.gephi&a=gephi&v=0.8.2-SNAPSHOT&p=dmg) (Mac OS X)
+
+- [gephi-0.8.2-SNAPSHOT-sources.tar.gz](http://nexus.gephi.org/nexus/service/local/artifact/maven/redirect?r=snapshots&g=org.gephi&a=gephi-parent&v=0.8.2-SNAPSHOT&c=sources&p=tar.gz) (Sources)
+
+- [gephi-0.8.2-SNAPSHOT-javadoc.jar](http://nexus.gephi.org/nexus/service/local/artifact/maven/redirect?r=snapshots&g=org.gephi&a=gephi-parent&v=0.8.2-SNAPSHOT&c=javadoc&p=jar) (Javadoc)
+
 ## Developer Introduction
 
-Gephi is developed in Java and use OpenGL for its visualization engine. Built on the top of Netbeans Platform, it follows a loosely-coupled, modular architecture philosophy. That permits to build large applications and make it grow in a sustainable way. Gephi is spitted into modules, which depend on each other through well-written APIs. Plugins are allowed to reuse existing APIs, create new services and even replace a default implementation by a new one.
+Gephi is developed in Java and uses OpenGL for its visualization engine. Built on the top of Netbeans Platform, it follows a loosely-coupled, modular architecture philosophy. That allows it to be used build large applications and to grow in a sustainable way. Gephi is split into modules, which depend on other modules through well-written APIs. Plugins can reuse existing APIs, create new services and even replace a default implementation with a new one.
 
 Consult the [**Javadoc**](http://gephi.org/docs) for an overview of the APIs.
+
+### Requirements
+
+- Java JDK 6 or 7 with preferably [Oracle Java JDK](http://java.com/en/).
+
+- [Apache Maven](http://maven.apache.org/) version 3.0.3 or later
 
 ### Checkout and Build the sources
 
@@ -32,33 +56,34 @@ Consult the [**Javadoc**](http://gephi.org/docs) for an overview of the APIs.
 
         git clone git@github.com:username/gephi.git
 
-- Run ant or [open the project in Netbeans](http://wiki.gephi.org/index.php/Build_Gephi)
+- Run the following command or [open the project in Netbeans](http://wiki.gephi.org/index.php/Build_Gephi)
 
-        ant
+        mvn clean install
+
+- Once built, one can test running Gephi
+
+		cd modules/application
+		mvn nbm:cluster-app nbm:run-platform
 
 ### Create Plug-ins
 
-Gephi is extensible and lets can create plug-ins to add new or modify existing features. You can create a new layout algorithm, a metric, support a new file format or database, create a filter, a tool or modify the visualization.
+Gephi is extensible and lets users create plug-ins to add new features, or to modify existing features. For example, you can create a new layout algorithm, add a metric, create a filter or a tool, support a new file format or database, or modify the visualization.
 
 - [**Plugins Portal**](http://wiki.gephi.org/index.php/Plugins_portal)
 
 - [Plugins Quick Start (5 minutes)](http://wiki.gephi.org/index.php/Plugin_Quick_Start_(5_minutes))
 
-- Browse the [plug-ins](http://gephi.org/plugins) created by the community
+- Browse the [plugins](http://gephi.org/plugins) created by the community
+
+- We've created a [**Plugins Bootcamp**](https://github.com/gephi/gephi-plugins-bootcamp) to learn by examples.
 
 ## Gephi Toolkit
 
-Gephi is not only a desktop software, it's also a Java library named [Gephi Toolkit](http://gephi.org/toolkit/).
-
-The project packagea essential modules (Graph, Layout, Filters, IO…) in a standard Java library, which any Java project can use for getting things done. The toolkit is just a single JAR that anyone could reuse in new Java applications and achieve tasks that can be done in Gephi automatically, from a command-line program for instance.
+The Gephi Toolkit project packages essential Gephi modules (Graph, Layout, Filters, IO…) in a standard Java library which any Java project can use for getting things done. It can be used on a server or command-line tool to do the same things Gephi does but automatically.
 
 - [Download](http://gephi.org/toolkit/)
 
-- Build from the Gephi sources
-
-        ant toolkit
-
-- [Javadoc](http://gephi.org/docs/toolkit/)
+- [GitHub Project](https://github.com/gephi/gephi-toolkit)
 
 - [Toolkit Portal](https://wiki.gephi.org/index.php/Toolkit_portal)
 
