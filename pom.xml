@@ -1264,5 +1264,7 @@
         <module>modules/Gleem</module>
         <module>modules/CoreLibraryWrapper</module>
         <module>modules/UILibraryWrapper</module>
+        <module>Legend API</module>
+        <module>Legend API</module>
     </modules>
 </project>
