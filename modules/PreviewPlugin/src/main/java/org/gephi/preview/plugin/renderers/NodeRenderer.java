@@ -125,7 +125,7 @@ public class NodeRenderer implements Renderer {
         }
 
         Element nodeElem = target.createElement("circle");
-        nodeElem.setAttribute("class", node.getNodeData().getId());
+        nodeElem.setAttribute("class", "id_" + node.getNodeData().getId());
         nodeElem.setAttribute("cx", x.toString());
         nodeElem.setAttribute("cy", y.toString());
         nodeElem.setAttribute("r", size.toString());

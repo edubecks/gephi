@@ -147,7 +147,7 @@ public class ArrowRenderer implements Renderer {
             Element arrowElem = svgTarget.createElement("polyline");
             arrowElem.setAttribute("points", String.format(Locale.ENGLISH, "%f,%f %f,%f %f,%f",
                     p1.x, p1.y, p2.x, p2.y, p3.x, p3.y));
-            arrowElem.setAttribute("class", edge.getSource().getNodeData().getId() + " " + edge.getTarget().getNodeData().getId());
+            arrowElem.setAttribute("class", "id_" + edge.getSource().getNodeData().getId() + " " + edge.getTarget().getNodeData().getId());
             arrowElem.setAttribute("fill", svgTarget.toHexString(color));
             arrowElem.setAttribute("fill-opacity", (color.getAlpha() / 255f) + "");
             arrowElem.setAttribute("stroke", "none");

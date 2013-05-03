@@ -213,7 +213,7 @@ public class EdgeRenderer implements Renderer {
             Element selfLoopElem = svgTarget.createElement("path");
             selfLoopElem.setAttribute("d", String.format(Locale.ENGLISH, "M %f,%f C %f,%f %f,%f %f,%f",
                     x, y, v1.x, v1.y, v2.x, v2.y, x, y));
-            selfLoopElem.setAttribute("class", node.getNodeData().getId());
+            selfLoopElem.setAttribute("class", "id_" + node.getNodeData().getId());
             selfLoopElem.setAttribute("stroke", svgTarget.toHexString(color));
             selfLoopElem.setAttribute("stroke-opacity", (color.getAlpha() / 255f) + "");
             selfLoopElem.setAttribute("stroke-width", Float.toString(thickness * svgTarget.getScaleRatio()));
@@ -280,7 +280,7 @@ public class EdgeRenderer implements Renderer {
         } else if (renderTarget instanceof SVGTarget) {
             SVGTarget svgTarget = (SVGTarget) renderTarget;
             Element edgeElem = svgTarget.createElement("path");
-            edgeElem.setAttribute("class", edge.getSource().getNodeData().getId() + " " + edge.getTarget().getNodeData().getId());
+            edgeElem.setAttribute("class", "id_" + edge.getSource().getNodeData().getId() + " " + edge.getTarget().getNodeData().getId());
             edgeElem.setAttribute("d", String.format(Locale.ENGLISH, "M %f,%f C %f,%f %f,%f %f,%f",
                     x1, y1, v1.x, v1.y, v2.x, v2.y, x2, y2));
             edgeElem.setAttribute("stroke", svgTarget.toHexString(color));
@@ -353,7 +353,7 @@ public class EdgeRenderer implements Renderer {
         } else if (renderTarget instanceof SVGTarget) {
             SVGTarget svgTarget = (SVGTarget) renderTarget;
             Element edgeElem = svgTarget.createElement("path");
-            edgeElem.setAttribute("class", edge.getSource().getNodeData().getId() + " " + edge.getTarget().getNodeData().getId());
+            edgeElem.setAttribute("class", "id_" + edge.getSource().getNodeData().getId() + " " + edge.getTarget().getNodeData().getId());
             edgeElem.setAttribute("d", String.format(Locale.ENGLISH, "M %f,%f L %f,%f",
                     x1, y1, x2, y2));
             edgeElem.setAttribute("stroke", svgTarget.toHexString(color));
